@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - check the code for Holberton School students.
+ * main - print multiple of 3 and 5 
  *
  * Return: void.
  */
