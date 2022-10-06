@@ -1,29 +1,39 @@
 #include "main.h"
 
 /**
- * main - multiplies two positive numbers
- * @argc: n arguments
- * @argv: args
- * Return: int
+ * _memset - copy char
+ * @s: string
+ * @b: input
+ * @n: bytes
+ * Return: string
  */
-int main(int argc, char *argv[])
+char *_memset(char *s, char b, unsigned int n)
 {
-unsigned long mul;
-int i, j;
-	if (argc != 3)
-	{ printf("Error\n");
-	exit(98); }
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{  printf("Error\n");
-			exit(98); }
-		}
+	unsigned int i;
 
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
 	}
-	mul = atol(argv[1]) *  atol(argv[2]);
-	printf("%lu\n", mul);
-return (0);
+	return (s);
+}
+
+/**
+ * _calloc - allocates memory for an array using malloc
+ * @nmemb: n elements
+ * @size: bytes
+ * Return: pointer
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *p;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	p = malloc(nmemb * size);
+
+	if (p == NULL)
+		return (NULL);
+	_memset(p, 0, (nmemb * size));
+	return (p);
 }
